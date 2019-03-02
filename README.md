@@ -5,6 +5,7 @@ An application simple use NodeJs, ExpressJS, reactJS, redux.
 
 How to setup: 
 
+	
 	server: 
 		- First, install mongodb for the database. 
 		  Visit link to know step install 
