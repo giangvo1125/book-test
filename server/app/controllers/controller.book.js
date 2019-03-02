@@ -1,6 +1,7 @@
 var { bookService } = require('../services')
 
 module.exports = {
+	//createBook: create new book and insert into DB.
 	createBook: (req, res, next) => {
 		let body = req.body
 		bookService.createBook(body)
@@ -14,6 +15,7 @@ module.exports = {
 		})
 	}, 
 
+	//editBook: edit book by id and update into DB.
 	editBook: (req, res, next) => {
 		let body = req.body
 		bookService.editBook(body)
@@ -27,6 +29,7 @@ module.exports = {
 		})
 	}, 
 
+	//removeBook: disable book by id and update into DB.
 	removeBook: (req, res, next) => {
 		let { _id } = req.query
 		bookService.removeBook(_id)
@@ -40,6 +43,7 @@ module.exports = {
 		})
 	}, 
 
+	//getBooks: get all book active in DB.
 	getBooks: (req, res, next) => {
 		bookService.getBooks()
 		.then((data) => {
@@ -52,6 +56,7 @@ module.exports = {
 		})
 	}, 
 
+	//getBook: get book by id.
 	getBook: (req, res, next) => {
 		let { _id } = req.query
 		bookService.getBook({ _id })

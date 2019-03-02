@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-// Setup schema
+//model Book
 var bookSchema = mongoose.Schema({
     name: {
         type: String,

@@ -2,6 +2,7 @@ var _ = require('lodash')
 const models = require('../models')
 const Book = models.book
 
+//getBooks: service get all book active
 const getBooks = () => {
 	return new Promise((resolve, reject) => {
 		Book.find({is_active: {$exists: false}}, (err, books) => {
@@ -13,6 +14,7 @@ const getBooks = () => {
 	})
 }
 
+//getBook: service get book by condition
 const getBook = (condition = {}) => {
 	return new Promise((resolve, reject) => {
 		Book.find(condition, (err, books) => {
@@ -24,6 +26,8 @@ const getBook = (condition = {}) => {
 	})
 }
 
+
+//createBook: service create a new book and insert into DB.
 const createBook = data => {
 	return new Promise((resolve, reject) => {
 		if(data.name) {
@@ -42,6 +46,7 @@ const createBook = data => {
 	})
 }
 
+//checkBook: service check book existed by id on DB.
 const checkBook =  _id => {
 	return new Promise((resolve, reject) => {
 		Book.findById(_id, (err, book) => {
@@ -53,6 +58,7 @@ const checkBook =  _id => {
 	})
 } 
 
+//editBook: service edit book
 const editBook = data => {
 	return new Promise((resolve, reject) => {
 		let { _id, update } = data
@@ -79,6 +85,7 @@ const editBook = data => {
 	})
 }
 
+//removeBook: service disable book on DB.
 const removeBook = _id => {
 	return new Promise((resolve, reject) => {
 		checkBook(_id)
