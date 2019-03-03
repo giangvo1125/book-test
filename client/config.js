@@ -7,7 +7,7 @@ var config = {
 	production: {
 		port: 2018,
 		domain: 'localhost',
-		apiUrl: 'http://localhost:2019/', 
+		apiUrl: 'http://http://198.13.59.208:2019/', 
 	},
 	
 }
