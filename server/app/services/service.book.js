@@ -5,7 +5,7 @@ const Book = models.book
 //getBooks: service get all book active
 const getBooks = () => {
 	return new Promise((resolve, reject) => {
-		Book.find({is_active: {$exists: false}}, (err, books) => {
+		Book.find({is_active: { "$in": ["true", true] }}, (err, books) => {
 			if(err) {
 				reject(err)
 			}

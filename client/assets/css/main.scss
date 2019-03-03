@@ -1,0 +1,287 @@
+$border: #ddd;
+$bg: #aaa;
+$height: 40px;
+$text: #545454;
+$primary: #00cc7c;
+$space: 20px;
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-size: 15px;
+	color: $text;
+	background-color: $bg;
+}
+.margin-top-10 {
+	margin-top: 10px;
+}
+
+.container {
+	background-color: white;
+	width: 920px;
+	margin: 50px auto;
+	padding: 10px;
+}
+.modal {
+	z-index: 1050;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	.modal__container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.modal__dimmer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			background-color: rgba(black,.8);
+		}
+		.modal__content {
+			position: relative;
+			background-color: white;
+			width: 500px;
+			padding: 10px;
+			.modal__header {
+				padding: 10px 0;
+				border-bottom: 1px solid $border;
+				margin-bottom: 10px;
+				.title {
+					font-size: 20px;
+					font-weight: bold;
+				}
+			}
+			.modal__body {
+
+			}
+			.modal__footer {
+				padding-top: 10px;
+				display: flex;
+				justify-content: flex-end;
+				.cancel, .submit {
+					min-width: 70px;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+					border: 1px solid $border;
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				.cancel {
+					margin-right: 10px;
+					&:hover {
+						cursor: pointer;
+						border-color: #555;
+					}
+				}
+				.submit {
+					background-color: #eee;
+					color: #aaa;
+					&:hover:not(.active) {
+						cursor: not-allowed;
+					}
+					&.active {
+						background-color: $primary;
+						color: white;
+						&:hover {
+							border-color: darken($primary, 5%);
+						}
+					}
+				}
+			}	
+		}
+	}
+	&.active {
+		display: block;
+	}
+}
+.form-control {
+	border: none;
+	display: block;
+	width: 100%;
+	height: $height;
+	padding: 0 10px;
+	background-color: #efefef;
+	font-size: 15px;
+	&:focus {
+		outline: none;
+	}
+	&.error {
+		background-color: rgba(red,.25);
+		color: red;
+	}
+}
+textarea.form-control {
+	height: initial;
+	padding: 10px;
+}
+.tooltip {
+	display: block;
+	padding: 2px 10px;
+	background-color: red;
+	color: white;
+}
+.list {
+	margin-left: initial;
+	li {
+		display: block;
+		padding: 10px 0px;
+		border-bottom: 1px dashed $border;
+	}
+	.error {
+		color: red;
+	}
+}
+.form {
+	display: block;
+	width: 600px;
+	background-color: white;
+	margin: 10% auto;
+	box-shadow: 5px 5px 0px rgba(white,.2),
+				10px 10px 0px rgba(white,.2),
+				15px 15px 0px rgba(white,.2);
+	.form__body {
+		padding: 20px;
+		height: 50vh;
+		overflow-x: hidden; 
+		overflow-y: auto;
+	}
+	.form__footer {
+		display: flex;
+		margin-top: 20px;
+		.input {
+			flex: 1;
+		}
+		.button {
+			position: relative;
+			.tooltip {
+				position: absolute;
+				top: calc(100% + 0px);
+				right: 0px;
+				// transition: .5s;
+				animation: flat 2s;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+		.submit {
+			border: none;
+			background-color: none;
+			width: 80px;
+			height: 100%;
+			text-align: center;
+			border-left: none;
+			background-color: #ccc;
+			color: #aaa;
+			text-transform: uppercase;
+			&:hover {
+				opacity: .9;
+				outline: none;
+				cursor: pointer;
+			}
+			&.active {
+				background-color: $primary;
+				color: white;
+			}
+		}
+	}
+}
+
+.filters {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	h1 {
+		flex: 1;
+		color: $primary;
+	}
+	.actions {
+		.add {
+			display: inline-block;
+			background-color: $primary;
+			color: white;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+	}
+
+}
+.table-container {
+	overflow: auto;
+}
+.table {
+	width: 100%;
+	border-collapse: collapse;	
+	border: 1px solid $border;
+	// .cell-no, .cell-id {
+	// 	text-align: left;
+	// }
+	
+	th, td {
+		padding: 10px;
+	}
+	thead {
+		background-color: $primary;
+		color: white;
+		tr {
+			th {
+				text-align: left;
+			}
+			th.cell-action {
+				text-align: center;
+				width: 50px;
+			}
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 1px solid $border;
+			td.cell-action {
+				white-space: nowrap;
+				text-align: center;
+				.delete,.edit {
+					display: inline-block;
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				.delete {
+					color: tomato;
+					&:hover {
+						color: darken(tomato, 20%);
+					}
+				}
+				.update {
+					color: orange;
+					&:hover {
+						color: darken(orange, 20%);
+					}
+				}
+			}
+			&:hover {
+				background-color: #efefef;
+			}
+		}
+
+	}
+}
+
+@keyframes flat {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}

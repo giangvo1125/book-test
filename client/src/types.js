@@ -1,0 +1,8 @@
+export const GET_BOOKS = 'get-books'
+export const REMOVE_BOOK = 'remove-book'
+export const EDIT_BOOK = 'edit-book'
+export const CREATE_BOOK = 'create-book'
+export const GET_BOOK = 'get-book'
+export const CHANGE_DATA_MODAL = 'change-data-modal'
+export const CHANGE_TYPE_MODAL = 'change-type-modal'
+export const TOGGLE_MODAL = 'toggle-modal'

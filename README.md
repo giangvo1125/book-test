@@ -17,6 +17,13 @@ How to setup:
 		- To run app, use npm start or npm run start:dev for the development environment, 
 		  npm run start:prod for the production environment.
 
+	client:
+		- First, on the client's folder, user command line to install the node modules
+		(npm install).
+
+		- To run app, use npm start or npm run start:dev for the development environment, 
+		  npm run start:prod for the production environment.
+
 
 
 =====================
